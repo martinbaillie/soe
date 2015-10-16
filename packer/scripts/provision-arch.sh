@@ -6,6 +6,7 @@ DISK='/dev/sda'
 FQDN='archie'
 KEYMAP='au'
 LANGUAGE='en_AU.UTF-8'
+COUNTRY='Australia'
 PASSWORD=$(/usr/bin/openssl passwd -crypt 'vagrant')
 TIMEZONE='UTC'
 
@@ -28,14 +29,18 @@ echo "==> Setting ${DISK} bootable"
 
 echo '==> Creating root filesystem'
 /usr/bin/mkfs.ext4 -F -m 0 -q -L root ${ROOT_PARTITION}
-#/usr/bin/mkfs.btrfs -q -L root ${ROOT_PARTITION}
+#/usr/bin/mkfs.btrfs -q -f -L root ${ROOT_PARTITION}
 
 echo "==> Mounting ${ROOT_PARTITION} to ${TARGET_DIR}"
-/usr/bin/mount -o noatime,errors=remount-ro ${ROOT_PARTITION} ${TARGET_DIR}
+/usr/bin/mount -o noatime ${ROOT_PARTITION} ${TARGET_DIR}
+
+echo "==> Updating repos and selecting the best mirror"
+/usr/bin/pacman -Syy --noconfirm reflector
+/usr/bin/reflector --verbose --country "$COUNTRY" -l 10 -p http --sort rate --save /etc/pacman.d/mirrorlist
 
 echo '==> Bootstrapping the base installation'
 /usr/bin/pacstrap ${TARGET_DIR} base base-devel
-/usr/bin/arch-chroot ${TARGET_DIR} pacman -Syu --noconfirm gptfdisk openssh syslinux
+/usr/bin/arch-chroot ${TARGET_DIR} pacman -Sy --noconfirm gptfdisk openssh syslinux
 /usr/bin/arch-chroot ${TARGET_DIR} syslinux-install_update -i -a -m
 /usr/bin/sed -i 's/sda3/sda1/' "${TARGET_DIR}/boot/syslinux/syslinux.cfg"
 /usr/bin/sed -i 's/TIMEOUT 50/TIMEOUT 10/' "${TARGET_DIR}/boot/syslinux/syslinux.cfg"
