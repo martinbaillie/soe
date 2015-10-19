@@ -1,7 +1,7 @@
 {
     "variables": {
-      "iso_url": "http://mirror.rackcentral.com.au/archlinux/iso/2015.09.01/archlinux-2015.09.01-dual.iso",
-      "iso_checksum": "4eb065d1b7639846703422a30c622eae0a558622",
+      "iso_url": "http://mirror.internode.on.net/pub/archlinux/iso/2015.10.01/archlinux-2015.10.01-dual.iso",
+      "iso_checksum": "6d95a2a35e29b23d6abd30011c6ab8220250efb6",
       "iso_checksum_type": "sha1",
       "http_proxy": "{{env `http_proxy`}}",
       "https_proxy": "{{env `https_proxy`}}"
@@ -27,7 +27,7 @@
               ["modifyvm", "{{.Name}}", "--memory", "2048"],
               ["modifyvm", "{{.Name}}", "--cpus", "4"]
             ],
-            "disk_size": 20480,
+            "disk_size": 30720,
             "hard_drive_interface": "sata",
             "ssh_username": "vagrant",
             "ssh_password": "vagrant",
