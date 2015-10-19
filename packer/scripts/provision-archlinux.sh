@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# TODO: LVM, mirrorlist, hwclock
+# TODO: LVM, hwclock, ntp
 
 DISK='/dev/sda'
 FQDN='archie'
