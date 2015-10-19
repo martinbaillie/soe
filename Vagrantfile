@@ -40,8 +40,8 @@ Vagrant.configure(2) do |config|
   if Vagrant.has_plugin?("vagrant-proxyconf")
     # TODO: change to use env variables
     # This is a CNTLM proxy on the host
-    config.proxy.http     = PROXY
-    config.proxy.https    = PROXY
-    config.proxy.no_proxy = "localhost,127.0.0.1"
+    config.proxy.http     = PROXYCONF_PROXY
+    config.proxy.https    = PROXYCONF_PROXY
+    config.proxy.no_proxy = "localhost,127.0.0.1,*.auiag.corp"
   end
 end

@@ -18,7 +18,7 @@
       "iso_checksum_type": "{{user `iso_checksum_type`}}",
       "guest_os_type": "ArchLinux_64",
       "guest_additions_mode": "disable",
-      "http_directory": "packer/scripts",
+      "http_directory": "{{template_dir}}/scripts",
       "boot_wait": "5s",
       "boot_command": [
         "<enter><wait10><wait10>",

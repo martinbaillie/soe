@@ -1,7 +1,4 @@
-# Cache objects
-packer_cache/
-
-# For built boxes
+*packer_cache/
 *.box
-
 .DS_Store
+.vagrant
