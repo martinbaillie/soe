@@ -1,4 +1,8 @@
 {
+  "push": {
+    "name": "martinbaillie/archlinux",
+    "vcs": true
+  },
   "variables": {
     "iso_url": "http://mirror.internode.on.net/pub/archlinux/iso/2015.10.01/archlinux-2015.10.01-dual.iso",
     "iso_checksum": "6d95a2a35e29b23d6abd30011c6ab8220250efb6",
