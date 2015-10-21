@@ -27,10 +27,6 @@
         "export https_proxy={{ user `https_proxy` }}<enter>",
         "/usr/bin/bash ./provision-archlinux.sh<enter>"
       ],
-      "vboxmanage": [
-        ["modifyvm", "{{.Name}}", "--memory", "2048"],
-        ["modifyvm", "{{.Name}}", "--cpus", "4"]
-      ],
       "disk_size": 30720,
       "hard_drive_interface": "sata",
       "ssh_username": "vagrant",
@@ -52,7 +48,8 @@
       "artifact_type": "vagrant.box",
       "metadata": {
         "provider": "virtualbox",
-        "version": "01.10.2015"
+        "version": "1.0.0",
+        "created_at": "{{timestamp}}"
       }
     }
   ]

@@ -15,7 +15,7 @@ Vagrant.configure(2) do |config|
 
   config.vm.provider "virtualbox" do |vb|
     vb.gui = true
-    vb.memory = 2048
+    vb.memory = 10240
     vb.cpus = 4
     vb.name = "archie"
     vb.customize ["modifyvm", :id, "--vram", "64"]
@@ -42,6 +42,6 @@ Vagrant.configure(2) do |config|
     # This is a CNTLM proxy on the host
     config.proxy.http     = PROXYCONF_PROXY
     config.proxy.https    = PROXYCONF_PROXY
-    config.proxy.no_proxy = "localhost,127.0.0.1,*.auiag.corp"
+    config.proxy.no_proxy = "localhost,127.0.0.1,.auiag.corp"
   end
 end
