@@ -37,7 +37,7 @@
     }
   ],
   "post-processors": [
-    {
+    [{
       "type": "vagrant",
       "output": "archlinux.box",
       "compression_level": 9
@@ -47,10 +47,8 @@
       "artifact": "martinbaillie/archlinux",
       "artifact_type": "vagrant.box",
       "metadata": {
-        "provider": "virtualbox",
-        "version": "1.0.0",
-        "created_at": "{{timestamp}}"
+        "provider": "virtualbox"
       }
-    }
+    }]
   ]
 }
